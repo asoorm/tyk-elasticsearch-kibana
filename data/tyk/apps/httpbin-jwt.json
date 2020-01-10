@@ -1,0 +1,32 @@
+{
+  "name": "httpbin-jwt",
+  "api_id": "httpbin-jwt",
+  "enable_jwt": true,
+  "jwt_signing_method": "hmac",
+  "jwt_source": "Zm9v",
+  "jwt_identity_base_field": "sub",
+  "jwt_default_policies": [
+    "5e189590801287e42a6cf5ce"
+  ],
+  "version_data": {
+    "not_versioned": true,
+    "versions": {
+      "default": {
+        "name": "default",
+        "use_extended_paths": true,
+        "global_headers": {
+          "User": "$tyk_context.jwt_claims_sub"
+        }
+      }
+    }
+  },
+  "proxy": {
+    "listen_path": "/httpbin-jwt/",
+    "target_url": "http://httpbin/",
+    "strip_listen_path": true
+  },
+  "active": true,
+  "enable_context_vars": true,
+  "tag_headers": ["User"],
+  "strip_auth_data": true
+}

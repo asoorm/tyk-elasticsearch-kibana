@@ -1,0 +1,61 @@
+version: "3"
+
+services:
+
+  elasticsearch:
+    image: elasticsearch:6.8.6
+    networks:
+     - es
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.8.6
+    networks:
+     - es
+    ports:
+    - 5601:5601
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+
+  redis:
+    image: redis:5-alpine
+    networks:
+    - tyk
+  pump:
+    image: tykio/tyk-pump-docker-pub:latest
+    depends_on:
+      - redis
+      - elasticsearch
+    networks:
+      - tyk
+      - es
+    volumes:
+      - ${PWD}/data/pump/pump.json:/opt/tyk-pump/pump.conf
+  tyk:
+    image: tykio/tyk-gateway:v2.9.2
+    depends_on:
+      - redis
+    networks:
+      - tyk
+    ports:
+     - 8080:8080
+    tty: true
+    volumes:
+    - ${PWD}/data/tyk/apps:/opt/tyk-gateway/apps
+    - ${PWD}/data/tyk/policies/policies.json:/opt/tyk-gateway/policies/policies.json
+    environment:
+      - TYK_GW_ENABLEANALYTICS=true
+      - TYK_GW_HEALTHCHECK_ENABLEHEALTHCHECKS=false
+    command: tyk
+
+  # for simplicity
+  httpbin:
+    image: kennethreitz/httpbin
+    networks:
+    - tyk
+
+networks:
+  tyk:
+    driver: bridge
+  es:
+    driver: bridge

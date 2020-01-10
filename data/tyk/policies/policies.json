@@ -1,0 +1,22 @@
+{
+  "5e189590801287e42a6cf5ce": {
+    "id": "5e189590801287e42a6cf5ce",
+    "rate": 100,
+    "per": 1,
+    "quota_max": -1,
+    "quota_renews": -1,
+    "quota_remaining": 0,
+    "quota_renewal_rate": 60,
+    "access_rights": {
+      "httpbin-jwt": {
+        "api_id": "httpbin-jwt",
+        "api_name": "httpbin-jwt",
+        "versions": [
+          "default"
+        ]
+      }
+    },
+    "name": "JWT Demo Policy",
+    "active": true
+  }
+}

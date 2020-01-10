@@ -1,0 +1,23 @@
+{
+  "name": "httpbin",
+  "api_id": "httpbin",
+  "use_keyless": true,
+  "version_data": {
+    "not_versioned": true,
+    "default_version": "",
+    "versions": {
+      "default": {
+        "name": "default",
+        "use_extended_paths": true
+      }
+    }
+  },
+  "proxy": {
+    "listen_path": "/httpbin/",
+    "target_url": "http://httpbin/",
+    "strip_listen_path": true
+  },
+  "active": true,
+  "tag_headers": [],
+  "strip_auth_data": false
+}
