@@ -4,6 +4,8 @@ This repository serves as accompaniment or TLDR to https://medium.com/@ahmet_195
 solution in-front of your services, and using in conjunction with a powerful search-engine like Elasticsearch & 
 viewing in Kibana.
 
+If you prefer YouTube videos, then you can watch the demo here: https://www.youtube.com/watch?v=x1tIiFBIBTY
+
 ## Usage
 
 ```
