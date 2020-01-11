@@ -1,6 +1,6 @@
 # Tyk - Elasticsearch - Kibana example
 
-This repository serves as accompaniment or TLDR to medium article showing the power of putting an API Gateway
+This repository serves as accompaniment or TLDR to https://medium.com/@ahmet_19567/observing-your-api-metrics-with-tyk-elasticsearch-kibana-74e8fd946c39 blog post showing the power of putting an API Gateway
 solution in-front of your services, and using in conjunction with a powerful search-engine like Elasticsearch & 
 viewing in Kibana.
 
